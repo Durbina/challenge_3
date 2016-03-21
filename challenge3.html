@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" href="jquery.js"></script>
+</head>
+<body>
+	<script>
+		var superCounter = function (string) {
+			//for splitting string into an array of single elements
+			var split = string.split("");
+			//for splitting string into an array of words
+			var splitIntoWords = string.split(" ");
+			//for determining the number of characters
+			var numOfChars = string.split("").length;
+			//for determining the number of spaces
+			var numOfSpaces = 0;
+			for (var i in split) {
+				if (split[i] === " "){
+					numOfSpaces++
+				};
+			};
+			//for determining the number of words
+			var numOfWords = string.split(" ").length;
+			//for determining the average word length
+			var addHere = 0;
+			for (var i in splitIntoWords) {
+				addHere += splitIntoWords[i].length;
+			};
+			var averageWordLength = Math.floor(addHere / splitIntoWords.length);
+			var results = {
+				words: numOfWords,
+				chars: numOfChars,
+				avgLength: averageWordLength,
+				spaces: numOfSpaces
+			};
+			return results;
+		};
+		var testString = "Count me in";
+		console.log(superCounter(testString))
+
+	</script>
+</body>
+</html>
